@@ -2,20 +2,36 @@
 const express = require ('express');
 const path = require('path')
 const app = express();
+const fs = require('fs');
 
-app.use(express.static(path.join(__dirname, 'public')))
+//app.use(express.static(path.join(__dirname, 'public')))
+app.listen(5000, () => {
+	console.log('Server  on Port 5000');
+});
 
+app.get('/', (req, res) => {
+	
+	let info = [];
+	//console.log(champions.data)
+
+	var dir = './lolsito/parche/data/es/champion/'
+	fs.readdir(dir, function (err, files) {
+		console.log(files)
+		if (err) {
+			console.log("No se pudo leer la carpeta", err);
+		} else {
+			files.forEach(function (file) {
+				var path_file = path.join(dir, file) 
+				var data = fs.readFileSync(path_file);
+				var champion = JSON.parse(data);
+				console.log(champion)
+			});	
+		}
+		
+	});
+	
+	
+
+	
+});
 console.log('taskete kudasai');
-
-app.listen(5000);
-
-
-const fetch = require("node-fetch");
-const url = 'https://la2.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=RGAPI-4d261a57-f4d6-4c6d-ab28-446734c7efdd';
-
-fetch(url)
-.then(response => response.json())
-.then(data => {
-    console.log(data)
-})
-.catch(err => console.log(err))
