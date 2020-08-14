@@ -11,7 +11,7 @@ app.listen(5000, () => {
 
 app.get('/', (req, res) => {
 	
-	let info = [];
+	let champions = [];
 	//console.log(champions.data)
 
 	var dir = './lolsito/parche/data/es/champion/'
@@ -24,12 +24,19 @@ app.get('/', (req, res) => {
 				var path_file = path.join(dir, file) 
 				var data = fs.readFileSync(path_file);
 				var champion = JSON.parse(data);
-				console.log(champion)
+				//console.log(Object.keys(champion.data));
+				/*var aux = {
+					nombre : Object.values(champion.data.id)
+				}
+				console.log(aux);*/
+				//console.log(champion.data);
+				var name = file.slice(0,-5);
+				//console.log(champion.data[name].id);
 			});	
 		}
 		
 	});
-	
+	res.send("holi")
 	
 
 	
