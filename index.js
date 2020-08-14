@@ -12,11 +12,11 @@ app.listen(5000, () => {
 
 app.get('/', (req, res) => {
 	
-	let champions = [];
 	//console.log(champions.data)
 
 	var dir = './lolsito/parche/data/es/champion/'
 	fs.readdir(dir, function (err, files) {
+		let champions = [];
 		console.log(files)
 		if (err) {
 			console.log("No se pudo leer la carpeta", err);
@@ -59,15 +59,15 @@ app.get('/', (req, res) => {
 					},
 
 				};
-				champions.push(aux);
+				//champions.push(aux);
 				console.log('----------------------------')
-				
+				//console.log(aux)
 				
 			});	
 		}
-		
+		console.log(champions);
+
 	})
-	console.log(champions);
 	
 	
 
