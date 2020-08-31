@@ -9,7 +9,7 @@ async function read_champions(){
 
 }
 function get_champs(){
-	const dir = './lolsito/parche/data/es/champion/'
+	const dir = './lolsito/parche/data/champion/'
 	let champions = [];
 	return new Promise((resolve, reject) =>{
 		fs.readdir(dir, function (err, files) {
