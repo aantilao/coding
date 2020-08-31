@@ -14,14 +14,12 @@ app.listen(5000, () => {
 
 app.get('/', (req, res) => {
 	const champ =  algo();
-	champ.then(resolve=> {
-		console.log(resolve);
-		res.json(resolve);
+	champ.then(info=> {
+		console.log(info);
+		res.json(info);
 	});
 });
 
 async function algo(){
-	return  champions = await champion.read_champions();
-	//console.log(champions, "final");
-	
+	return champions = await champion.read_champions();	
 }
