@@ -56,7 +56,11 @@ function get_champs(){
 					champions.push(aux);
 				});	
 			}
-		resolve(champions);
+		if (champions.length > 0){
+			resolve(champions);
+		} else {
+			reject("No se pudo cargar los archivos");
+		} 
 		});
 	});
 }
