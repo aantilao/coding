@@ -15,8 +15,10 @@ app.listen(5000, () => {
 app.get('/', (req, res) => {
 	const champ =  algo();
 	champ.then(info=> {
-		console.log(info);
 		res.json(info);
+	})
+	.catch(error => {
+		res.send(error);
 	});
 });
 
