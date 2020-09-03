@@ -29,3 +29,7 @@ async function algo(){
 app.get('/items/', (req, res) => {
 	res.sendFile(__dirname + '/lolsito/parche/img/champion/Akali.png');
 });
+
+app.get('/lol/', (req,res) =>{
+	res.send('Aún la amo socio ');
+});
