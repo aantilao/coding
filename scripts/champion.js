@@ -29,6 +29,7 @@ function get_champs(){
 						title : champion.data[name].title,
 						lore : champion.data[name].lore,
 						tags : champion.data[name].tags,
+						img :  + champion.data[name].id + "_0.jpg", 
 						partype : champion.data[name].partype,
 						difficulty : champion.data[name].info.difficulty,
 						Q : {

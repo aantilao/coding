@@ -33,3 +33,8 @@ app.get('/items/', (req, res) => {
 app.get('/lol/', (req,res) =>{
 	res.send('Aún la amo socio ');
 });
+
+app.get(':img(/[A-Z][a-z]*.jpg)/', (req, res) => {
+	console.log("------------------", req.params['img']);
+	res.sendFile(__dirname + '/lolsito/parche/img/skin'+ req.params['img']);
+});
