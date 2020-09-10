@@ -5,7 +5,7 @@ var fs = require('fs');
 const champion = require('./scripts/champion.js');
 
 app.set('port', (process.env.PORT || 5000));
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), () => {
     console.log('App is running, server is listening on port ', app.get('port'));
 });
 
@@ -34,7 +34,7 @@ app.get('/items/', (req, res) => {
 //enrutador de imagenes de campeones 
 app.get('/imgs/champion/:name', (req, res) => {
 
-	path = __dirname + '/lolsito/parche/img/skin/'+ req.params['name']
+	path = __dirname + '/lolsito/parche/img/skin/'+ req.params['name'];
 	fs.stat(path, error => {
 		if (!error){
 			console.log("------------------", req.params['name']);
@@ -42,5 +42,5 @@ app.get('/imgs/champion/:name', (req, res) => {
 		} else {
 			res.send('Esta ruta no existe');
 		}
-	})
+	});
 });
