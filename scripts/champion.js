@@ -1,23 +1,23 @@
 const fs = require('fs');
-const path = require('path')
+const path = require('path');
 async function read_champions(){
 	
-	const result = await get_champs();
-	//console.log(result)
-	
+	const result = await get_champs();	
 	return result;
 
 }
 function get_champs(){
-	const dir = './lolsito/parche/data/champion/'
-	let champions = [];
+	const dir = './lolsito/parche/data/champion/';
+	var champions = [];
+
 	return new Promise((resolve, reject) =>{
-		fs.readdir(dir, function (err, files) {
+		fs.readdir(dir, (err, files) => {
 			console.log(files)
 			if (err) {
 				console.log("No se pudo leer la carpeta", err);
+				reject("No se pudo cargar los archivos");
 			} else {
-				files.forEach(function (file) {
+				files.forEach(file => {
 					var path_file = path.join(dir, file) 
 					var data = fs.readFileSync(path_file);
 					var champion = JSON.parse(data);
